@@ -1,0 +1,408 @@
+/*===== GERAL ===============================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+:root {
+    --primary-color: #1f22f1; /* Lain's pink */
+    --primary-hover: #cc00cc; /* Darker pink */
+    --secondary-color: #000000; /* Black */
+    --third-color: rgba(255, 255, 255, 0.1); /* Transparent white */
+    --bg-color: #1a1a1a; /* Dark background */
+    --headline: #ffffff; /* White */
+    --paragraph: rgba(255, 255, 255, 0.658); /* Semi-transparent white */
+    --paragraph-2: #cccccc; /* Light grey */
+    --nav-height: 7.2rem;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-size: 1.6rem;
+    text-align: center;
+    background-color: var(--bg-color);
+    background-image: url('https://files.catbox.moe/kk8ome.gif'); /* Add background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--paragraph);
+    cursor: url('http://www.rw-designer.com/cursor-view/98422.png'), auto; /* Custom cursor */
+    height: 100%;
+}
+
+.wrapper {
+    width: min(90%, 1200px);
+    margin-inline: auto;
+    padding-inline: 2.4rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: purple;
+}
+
+a.linkedin-link {
+    color: inherit; /* Keep the original color */
+    transition: text-shadow 0.3s ease;
+}
+
+a.linkedin-link:hover {
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+a.linkedin-link:visited {
+    color: inherit; /* Keep the original color after visit */
+}
+
+img {
+    max-width: 100%;
+    border-radius: 0.5rem;
+}
+
+section {
+    padding-block: 10rem;
+    padding-inline: 2rem;
+}
+
+h1, h2, h3 {
+    color: var(--headline);
+}
+
+p {
+    color: var(--paragraph);
+}
+
+nav {
+    width: 100vw;
+    height: var(--nav-height);
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+nav .menu {
+    display: flex;
+    gap: 2rem;
+}
+
+nav .menu li a {
+    color: purple;
+    font-size: 1.6rem;
+    transition: color 0.3s;
+}
+
+nav .menu li a:hover {
+    color: var(--primary-hover);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: purple;
+}
+
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://files.catbox.moe/kk8ome.gif');
+}
+
+#home .wrapper {
+    text-align: center;
+}
+
+.animated-text {
+    margin-top: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.animated-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: slideIn 1s ease-in-out;
+}
+
+.animated-text p {
+    font-size: 2rem;
+    color: rgb(243, 24, 24);
+    animation: changeRole 1s infinite;
+}
+
+@keyframes changeRole {
+    0%, 33% { content: "Dev"; }
+    34%, 66% { content: "Pentester"; }
+    67%, 100% { content: "Bughunter"; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s linear;
+}
+
+.carousel-inner img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+#about, #projects, #contact {
+    background-image: url('https://files.catbox.moe/kk8ome.gif');
+}
+
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 2rem;
+    text-align: left;
+}
+
+.about-image {
+    flex: 1;
+    text-align: right;
+}
+
+.cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem; /* Add margin-top to create space between title and cards */
+}
+
+.card {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+    margin: 0 auto;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card .details {
+    display: none;
+    margin-top: 1rem;
+    color: var(--paragraph);
+}
+
+.card.expanded .details {
+    display: block;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 2rem; /* Increase font size */
+    color: #fff;
+    background-image: url('https://files.catbox.moe/kk8ome.gif');
+    border: none; /* Remove border */
+    transition: color 0.3s;
+}
+
+.contact-button i {
+    margin-right: 0.5rem;
+}
+
+.contact-button:hover {
+    color: var(--primary-hover);
+}
+
+.contact-button.whatsapp {
+    color: #25D366; /* WhatsApp green */
+}
+
+.contact-button.instagram {
+    color: #E1306C; /* Instagram pink */
+}
+
+footer {
+    background-image: url('https://files.catbox.moe/kk8ome.gif');
+    padding: 2rem 0;
+}
+
+footer .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: white;
+}
+
+.animated-section {
+    animation: fadeIn 2s ease-in-out;
+    background-image: url('https://files.catbox.moe/kk8ome.gif');
+}
+
+/* Skills Section */
+.skills {
+    margin-top: 2rem;
+    background-image: url('https://files.catbox.moe/kk8ome.gif');
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.skills__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.skills__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--headline);
+    transition: transform 0.3s;
+}
+
+.skills__icon i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.skills__icon:hover {
+    transform: scale(1.1);
+    color: var(--primary-hover);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: var(--nav-height);
+        right: 0;
+        background-color: var(--secondary-color);
+        width: 100%;
+        padding: 1rem;
+    }
+
+    nav .menu.active {
+        display: flex;
+    }
+
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        padding-right: 0;
+    }
+
+    .about-image {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .skills__container {
+        gap: 0.5rem;
+    }
+
+    .skills__icon {
+        font-size: 1.2rem;
+    }
+
+    .skills__icon i {
+        font-size: 2.5rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
